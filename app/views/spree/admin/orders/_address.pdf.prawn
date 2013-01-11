@@ -34,16 +34,21 @@ else
       data2 << [order.shipping_method.try(:name), order.shipping_method.try(:name)]
 end
     
-table data2,
-  :position => :center,
-  :cell_style => {
-    :border_width => 0.0,
-    :padding   => [0, 6],
-    :size => 9,
-  },
-  :column_widths => { 0 => 270, 1 => 270 }  do
-  row(0).padding_top=3
+box_width = 400
+bounding_box [(bounds.width - box_width)/2], :width=>box_width do
+	table data2,
+	  :position => :center,
+	  :cell_style => {
+	    :border_width => 0.0,
+	    :padding   => [0, 6],
+	    :size => 9,
+	  },
+	  :column_widths => { 0 => 270, 1 => 270 }  do
+	  row(0).padding_top=3
+	end
 end
+
+
 
 move_down 2
 
