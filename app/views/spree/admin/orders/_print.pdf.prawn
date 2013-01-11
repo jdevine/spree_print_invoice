@@ -3,9 +3,9 @@ require 'prawn/layout'
 font "Helvetica"
 im = "#{Rails.root.to_s}/app/assets/images/#{Spree::PrintInvoice::Config[:print_invoice_logo_path]}"
 
-image im , :at => [5,717] , :scale => 0.30
+image im , :at => [5,717] , :scale => 0.35
 
-fill_color "E99323"
+fill_color "1C3365"
 
 bounding_box( [bounds.width - 300 ,cursor], :width=>296 ) do
         move_down 4
@@ -27,8 +27,9 @@ bounding_box( [bounds.width - 300 ,cursor], :width=>296 ) do
 
 	font "Helvetica", :size => 9
 	text "#{I18n.l @order.completed_at.to_date}", :align => :right
-
 end
+
+move_down 10
 
 render :partial => "address"
 
