@@ -5,7 +5,8 @@ anonymous = @order.email =~ /@example.net$/
 order = @order
 
 move_down 2
-box_width = 400
+
+box_width = 440
 
 bounding_box [(bounds.width - box_width)/2,cursor], :width=>box_width do
 	data = [[make_cell( :content => I18n.t(:billing_address), :font_style => :bold ),
@@ -18,10 +19,9 @@ bounding_box [(bounds.width - box_width)/2,cursor], :width=>box_width do
 	      :size => 9,
 	      :border_width => 0.5
 	    },
-	    :column_widths => { 0 => 199, 1 => 199 }
+	    :column_widths => { 0 => 220, 1 => 220 }
 
 	move_down 2
-	horizontal_rule
 
 	if anonymous and Spree::Config[:suppress_anonymous_address]
 	      data2 = [[" "," "]] * 6 
@@ -40,11 +40,11 @@ bounding_box [(bounds.width - box_width)/2,cursor], :width=>box_width do
 	table data2,
 	  :position => :center,
 	  :cell_style => {
-	    :border_width => 0.0,
+	    :border_width => 0.5,
 	    :padding   => [0, 6],
 	    :size => 9,
 	  },
-	  :column_widths => { 0 => 199, 1 => 199 }  do
+	  :column_widths => { 0 => 220, 1 => 220 }  do
 	  row(0).padding_top=3
 	end
 end
