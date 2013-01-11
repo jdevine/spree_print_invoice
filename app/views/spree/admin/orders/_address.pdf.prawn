@@ -18,7 +18,7 @@ bounding_box [(bounds.width - box_width)/2,cursor], :width=>box_width do
 	      :size => 9,
 	      :border_width => 0.5
 	    },
-	    :column_widths => { 0 => 270, 1 => 270 }
+	    :column_widths => { 0 => 199, 1 => 199 }
 
 	move_down 2
 	horizontal_rule
@@ -44,7 +44,7 @@ bounding_box [(bounds.width - box_width)/2,cursor], :width=>box_width do
 	    :padding   => [0, 6],
 	    :size => 9,
 	  },
-	  :column_widths => { 0 => 270, 1 => 270 }  do
+	  :column_widths => { 0 => 199, 1 => 199 }  do
 	  row(0).padding_top=3
 	end
 end
