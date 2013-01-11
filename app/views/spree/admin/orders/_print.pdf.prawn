@@ -10,9 +10,9 @@ fill_color "E99323"
 bounding_box( [bounds.width - 300 ,cursor], :width=>296 ) do
         move_down 4
 	if @hide_prices
-	  text I18n.t(:packaging_slip), :align => :right, :style => :bold, :size => 16, :padding=>[3,3,0,0]
+	  text I18n.t(:packaging_slip), :align => :right, :style => :bold, :size => 16
 	else
-	  text I18n.t(:customer_invoice), :align => :right, :style => :bold, :size => 16, :padding=>[3,3,0,0]
+	  text I18n.t(:customer_invoice), :align => :right, :style => :bold, :size => 16
 	end
 
 	fill_color "000000"
