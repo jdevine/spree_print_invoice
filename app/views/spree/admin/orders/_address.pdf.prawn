@@ -4,10 +4,8 @@ ship_address = @order.ship_address
 anonymous = @order.email =~ /@example.net$/
 order = @order
 
-move_down 2
-
-box_width = 440
-
+move_down 12
+box_width = 420
 bounding_box [(bounds.width - box_width)/2,cursor], :width=>box_width do
 	data = [[make_cell( :content => I18n.t(:billing_address), :font_style => :bold ),
 		 make_cell( :content =>I18n.t(:shipping_address), :font_style => :bold )]]
@@ -47,12 +45,11 @@ bounding_box [(bounds.width - box_width)/2,cursor], :width=>box_width do
 	  row(0).padding_top=3
           row(0).border_top_width = 0.5
           row(-1).border_bottom_width = 0.5
+          row(-1).padding_bottom = 6
           column(0).border_left_width  = 0.5
           column(-1).border_right_width  = 0.5
 	end
 end
-
-
 
 move_down 2
 
