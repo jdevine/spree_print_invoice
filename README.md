@@ -3,13 +3,26 @@ SUMMARY
 
 This extension provides a "Print Invoice" button on the Admin Orders view screen which generates a PDF of the order details.
 
+Adapted from spree/spree_print_invoice_
+
+Wanted to use it with spree 1.3, so updated the gemspec. 
+
+Didn't know prawn, so I figured if I was going to have to learn that, I might as well learn the lastest version (1.0.0.rc1)
+
+Changes include: pull logo from app/assets instead of public so behavior consistant in dev/prod enviroments...
+
+prawn syntax changes to work with latest version...
+
+render at end of prawn template instead of after each partial so cursor wouldn't reset to top of page.
+
+
  
 INSTALLATION
 ============
 
 1. The gem relies only on the prawn gem, to install you need to add the following lines to your Gemfile
 
-    gem 'spree_print_invoice' , :git => 'git://github.com/spree/spree_print_invoice.git'
+    gem 'spree_print_invoice' , :git => 'git://github.com/jdevine/spree_print_invoice.git'
 
 2. run bundler
 
@@ -22,7 +35,9 @@ Configuration
 
 1. Set the logo path preference to include your store / company logo.
 
-    Spree::PrintInvoice::Config.set(:print_invoice_logo_path => "/path/to/public/images/company-logo.png")
+    Spree::PrintInvoice::Config.set(:print_invoice_logo_path => "company-logo.png")
+
+    if "company-logo.png" is at /app/assets/images/
 
 2. Add your own own footer texts to the locale. The current footer works with :footer_left1 , :footer_left2 and :footer_right1, :footer_right2 where the 1 version is on the left in bold, and the 2 version the "value" on the right.
 
@@ -34,13 +49,4 @@ Configuration
 
   Spree::PrintInvoice::Config.set(:print_buttons => "invoice,packaging_slip")  #comma separated list
 
- Use above feature for your own template if you want. For each button_name, define button_name_print text in your locale.
-
-Plans
-=====
-Next receipts and then product related stuff with barcodes.
-
-
-Contributions welcome
-
-Torsten
+  Use above feature for your own template if you want. For each button_name, define button_name_print text in your locale.
