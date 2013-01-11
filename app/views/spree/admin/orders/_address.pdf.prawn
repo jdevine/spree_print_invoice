@@ -19,7 +19,7 @@ bounding_box [(bounds.width - box_width)/2,cursor], :width=>box_width do
 	      :size => 9,
 	      :border_width => 0.5
 	    },
-	    :column_widths => { 0 => 220, 1 => 220 }
+	    :column_widths => { 0 => box_width/2, 1 => box_width/2 }
 
 	move_down 2
 
@@ -37,15 +37,18 @@ bounding_box [(bounds.width - box_width)/2,cursor], :width=>box_width do
 	      data2 << [order.shipping_method.try(:name), order.shipping_method.try(:name)]
 	end
     
-	table data2,
-	  :position => :center,
-	  :cell_style => {
-	    :border_width => 0.5,
-	    :padding   => [0, 6],
-	    :size => 9,
-	  },
-	  :column_widths => { 0 => 220, 1 => 220 }  do
+	table data2, :position => :center,
+	             :cell_style => {
+	               :border_width => 0,
+	               :padding   => [0, 6],
+	               :size => 9,
+	             },
+	             :column_widths => { 0 => box_width/2, 1 => box_width/2 }  do
 	  row(0).padding_top=3
+          row(0).border_top_width = 0.5
+          row(-1).border_bottom_width = 0.5
+          column(0).border_left_width  = 0.5
+          column(-1).border_right_width  = 0.5
 	end
 end
 
