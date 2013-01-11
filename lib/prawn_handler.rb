@@ -8,12 +8,13 @@ module ActionView
       end
             
       def self.call(template)
-        %(extend #{DocumentProxy}; #{template.source}; pdf.render)
+        %(extend #{DocumentProxy}; #{template.source})
       end
       
+
       module DocumentProxy
         def pdf
-          @pdf ||= ::Prawn::Document.new
+          @this_pdf ||= ::Prawn::Document.new
         end
         
       private
